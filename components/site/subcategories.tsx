@@ -1,0 +1,6 @@
+'use client';
+import {Text} from '@/components/site/language';
+import {useState} from 'react';
+import {ArrowRight,ChevronLeft} from 'lucide-react';
+const varieties=[['Lemon Wet Wipes','Cleaning Wet Wipes'],['Everyday Wet Towels','Travel Wet Towels'],['Paw Cleaning Wipes','Coat Care Wipes'],['Fresh WC Blocks','Lemon WC Blocks'],['Everyday Mop Towels','Heavy-Duty Mop Towels'],['Flat Mop','Mop & Refill Set']];
+export function Subcategories({category}:{category:number}){const [selected,setSelected]=useState<string|null>(null);return <div className="subcategory-stage" key={selected??category}>{selected?<div className="subcategory-detail"><button className="subcategory-back" onClick={()=>setSelected(null)}><ChevronLeft size={16}/><Text value={" All varieties"}/></button><h3><Text value={selected}/></h3><p><Text value={"Sample variety. Final product details and packaging will be added here."}/></p><a className="pill" href={`/products#category-${category}`}><Text value={"View products "}/><ArrowRight size={18}/></a></div>:<div className="subcategory-list">{varieties[category].map((name,index)=><button key={name} style={{animationDelay:`${index*65}ms`}} onClick={()=>setSelected(name)}><span className={`subcategory-color color-${index}`}/><span><Text value={name}/><small><Text value={"Sample variety"}/></small></span><ArrowRight size={19}/></button>)}</div>}</div>}

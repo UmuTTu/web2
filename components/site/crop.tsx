@@ -1,0 +1,1 @@
+export function Crop({x,y,w,h,className='',alt=''}:{x:number;y:number;w:number;h:number;className?:string;alt?:string}){return <div role="img" aria-label={alt} className={'crop '+className} style={{aspectRatio:`${w}/${h}`}}><img src="/reference.png" alt="" style={{width:`${1024/w*100}%`,maxWidth:'none',left:`${-x/w*100}%`,top:`${-y/h*100}%`}}/></div>}

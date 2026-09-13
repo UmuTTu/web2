@@ -1,0 +1,4 @@
+'use client';
+import {useEffect} from 'react';
+import {usePathname} from 'next/navigation';
+export function MotionEnhancements(){const pathname=usePathname();useEffect(()=>{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('reveal-visible');observer.unobserve(entry.target)}}},{threshold:.08});const targets=document.querySelectorAll('.about-story,.about-principles article,.contact-options article,.catalog-category,.about.section,.products.section,.experience-banner,.quote-layout');targets.forEach(target=>{target.classList.add('reveal-ready');observer.observe(target)});return()=>{observer.disconnect();targets.forEach(target=>target.classList.remove('reveal-ready','reveal-visible'))}},[pathname]);return null}
