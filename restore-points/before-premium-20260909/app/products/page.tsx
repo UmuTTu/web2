@@ -1,0 +1,4 @@
+import type {Metadata} from 'next';
+import {ProductCatalog} from './product-catalog';
+export const metadata:Metadata={title:'All Products — Concord',description:'Browse Concord product categories and sample product variants.'};
+export default function ProductsPage(){return <main className="interior-page catalog-page"><section className="interior-heading"><a className="breadcrumb" href="/">Home / Products</a><p className="eyebrow">Our full range</p><h1>Everyday essentials.<br/><span>Care in every detail.</span></h1><p className="page-intro">Explore individual products for personal care, your companions and your space.</p></section><div className="catalog-notice">Sample catalogue · Product names and pack sizes are placeholders. Final product information will be added here.</div><ProductCatalog/></main>}
